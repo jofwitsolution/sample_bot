@@ -1,6 +1,9 @@
 const dotenv = require("dotenv");
 const telegramBot = require("node-telegram-bot-api");
 const { containUrl } = require("./utils/linkDetector");
+const express = require("express");
+
+const app = express();
 
 dotenv.config();
 
@@ -118,3 +121,9 @@ bot.on("message", (msg) => {
 //       .catch((error) => console.log(error));
 //   }
 // });
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Listening on port ${PORT}.`);
+});
